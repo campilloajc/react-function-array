@@ -1,23 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import { FirstQuestion } from "./components/FirstQuestion";
+import { SecondQuestion } from "./components/SecondQuestion";
+const arrayData = [
+  [1, 2],
+  [3, 4],
+  [5, 6],
+];
 
 function App() {
+  const [state, setState] = useState({
+    listArrayNumber: arrayData,
+  });
+
+  const transformaDataArray = () => {
+
+    const copyArray = [...state.listArrayNumber];
+
+    const result = copyArray.flatMap((item) => item);
+
+    setState((prev) => ({ ...prev, listArrayNumber: result }));
+
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+
+       <FirstQuestion/>
+
+       <SecondQuestion/>
+
+      <div>
+        <p>punto c.</p>
+        <p>{JSON.stringify(state.listArrayNumber)}</p>
+
+        <button onClick={transformaDataArray}>Transformar</button>
+        <button
+          onClick={() =>
+            setState((prev) => ({ ...prev, listArrayNumber: arrayData }))
+          }
         >
-          Learn React
-        </a>
-      </header>
+          Regrsar
+        </button>
+
+      </div>
     </div>
   );
 }
