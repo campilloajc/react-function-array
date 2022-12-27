@@ -23,7 +23,7 @@ export const FirstQuestion = () => {
         return firtNumber * secondNumber;
       case "/":
         if (secondNumber === 0) return Error("no se puede dividir por 0");
-        return a / b;
+        return firtNumber / secondNumber;
       default:
         return 1;
     }

@@ -27,7 +27,7 @@ export const SecondQuestion = () => {
 
      const dataArr = new Set(listCity);
 
-      const data = [...dataArr].map((item, index ) => {
+      const data = [...dataArr].map((item) => {
         let counter = 0;
         listCity.forEach(x => {
          if(item === x ){
@@ -47,7 +47,7 @@ export const SecondQuestion = () => {
     <div>
       <p>punto b.</p>
       <ul>
-         {state.length > 0 ?  state.map((item, index) => (
+         {state.length > 0 ? state.map((item, index) => (
 
             <li key={index} style={{listStyle:'none'}}>
                { item.info.ciudad } - { item.info.cantidad }
